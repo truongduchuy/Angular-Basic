@@ -13,18 +13,12 @@ import { Component, OnInit } from '@angular/core';
     <h2 class="text-special" [class]="successClass">Codevolution3</h2>
     <h2 [class.text-danger]="hasError">Codevolution4</h2>
     <h2 [ngClass]="messageClasses">Message5</h2>
+
+    <h2 [style.color]="hasError ? 'red' : 'green'" >Style Binding</h2>
+    <h2 [style.color]="hightlightColor" >Style Binding2</h2>
+    <h2 [ngStyle]="objStyles" >Style Binding3</h2>
   `,
-  styles: [`
-    .text-success {
-      color: green;
-    }
-    .text-danger {
-      color: red;
-    }
-    .text-special {
-      font-style: italic;
-    }
-  `],
+  styles: [],
 })
 
 // interpolation doesn't work when attribute is boolean
@@ -43,6 +37,12 @@ export class Test2Component implements OnInit {
     "text-danger": this.hasError,
     "text-special": this.isSpecial
   }
-  
+
+  public objStyles = {
+    color: 'aqua',
+    "font-style": 'italic'
+  }
+
+  public hightlightColor = 'orange'
   ngOnInit(): void {}
 }
