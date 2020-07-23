@@ -4,9 +4,8 @@ import { Component, OnInit } from '@angular/core';
   selector: '[app-test2]',
   template: `
     <h2>welcome {{ name }}</h2>
-    <button (click)="onClick($event)" >event binding</button>
-    <button (click)="greeting='cool'" >event binding2</button>
-    {{greeting}}
+    <input #myinput type="text">
+    <button (click)="handleClick(myinput.value)">Log</button>
   `,
   styles: [],
 })
@@ -15,11 +14,9 @@ import { Component, OnInit } from '@angular/core';
 export class Test2Component implements OnInit {
   constructor() {}
   public name = 'huy';
-  public greeting = ""
   
-  onClick(event) {
-    console.log(event)
-    this.greeting = 'hello'
+  handleClick(value) {
+    console.log(value)
   }
 
   public hightlightColor = 'orange'
