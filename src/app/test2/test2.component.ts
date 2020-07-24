@@ -13,7 +13,6 @@ import { Component, OnInit } from '@angular/core';
 // interpolation doesn't work when attribute is boolean
 export class Test2Component implements OnInit {
   public name = '';
-  
   public age = '';
 
   constructor() {}
