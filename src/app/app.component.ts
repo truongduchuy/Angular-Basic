@@ -8,9 +8,4 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'my-dream-app';
   public name = 'Huy'
-  public message = ""
-
-  onChildClicked(value) {
-    this.message = value
-  }
 }
