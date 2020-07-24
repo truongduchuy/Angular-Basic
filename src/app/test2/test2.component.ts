@@ -1,18 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: '[app-test2]',
   template: `
-  <div *ngFor="let color of colors; even as e">
-    <h2>{{e}} {{color}}</h2>
-  </div>
+  <h2>{{"Hello " + name}}</h2>
+  <button (click)="fireEvent()" >Click</button>
+
   `,
   styles: [],
 })
 
 // interpolation doesn't work when attribute is boolean
 export class Test2Component implements OnInit {
-  public colors = ["orange", 'red', 'blue', 'green'];
+  @Input('parentData') public name;
+  @Output() public childEvent = new EventEmitter();
+
+  fireEvent() {
+    this.childEvent.emit('Message')
+  }
 
   constructor() {}
 
