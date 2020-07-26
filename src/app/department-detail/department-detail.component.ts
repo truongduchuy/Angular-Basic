@@ -1,18 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-department-detail',
-  template: ` <p>department id: {{ departmentId }}</p> `,
+  template: `
+    <h3>department id: {{ departmentId }}</h3>
+    <a (click)="goPrevious()">Previous</a>
+    <a (click)="goNext()">Next</a>
+  `,
   styles: [],
 })
 export class DepartmentDetailComponent implements OnInit {
   public departmentId;
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
-    console.log(this.route);
+    // console.log(this.route);
+    // // this.departmentId = parseInt(this.route.snapshot.paramMap.get('id'));
     // this.departmentId = parseInt(this.route.snapshot.paramMap.get('id'));
-    this.departmentId = this.route.snapshot.params['id'];
+    this.route.paramMap.subscribe(
+      (params: ParamMap) => (this.departmentId = parseInt(params.get('id')))
+    );
+  }
+
+  goPrevious() {
+    this.router.navigate(['/departments', this.departmentId - 1]);
+  }
+
+  goNext() {
+    this.router.navigate(['/departments', this.departmentId + 1]);
   }
 }
