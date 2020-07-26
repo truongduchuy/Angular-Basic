@@ -7,6 +7,9 @@ import { ActivatedRoute, Router, ParamMap } from '@angular/router';
     <h3>department id: {{ departmentId }}</h3>
     <a (click)="goPrevious()">Previous</a>
     <a (click)="goNext()">Next</a>
+    <div>
+      <button (click)="gotoDepartments()">back</button>
+    </div>
   `,
   styles: [],
 })
@@ -15,9 +18,6 @@ export class DepartmentDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
-    // console.log(this.route);
-    // // this.departmentId = parseInt(this.route.snapshot.paramMap.get('id'));
-    // this.departmentId = parseInt(this.route.snapshot.paramMap.get('id'));
     this.route.paramMap.subscribe(
       (params: ParamMap) => (this.departmentId = parseInt(params.get('id')))
     );
@@ -29,5 +29,9 @@ export class DepartmentDetailComponent implements OnInit {
 
   goNext() {
     this.router.navigate(['/departments', this.departmentId + 1]);
+  }
+
+  gotoDepartments() {
+    this.router.navigate(['/departments', { id: this.departmentId }]);
   }
 }
