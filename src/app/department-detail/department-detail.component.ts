@@ -24,14 +24,16 @@ export class DepartmentDetailComponent implements OnInit {
   }
 
   goPrevious() {
-    this.router.navigate(['/departments', this.departmentId - 1]);
+    this.router.navigate(['../', this.departmentId - 1], {relativeTo: this.route});
   }
 
   goNext() {
-    this.router.navigate(['/departments', this.departmentId + 1]);
+    this.router.navigate(['../', this.departmentId + 1], {relativeTo: this.route});
   }
 
   gotoDepartments() {
-    this.router.navigate(['/departments', { id: this.departmentId }]);
+    this.router.navigate(['../', { id: this.departmentId }], {
+      relativeTo: this.route,
+    });
   }
 }
