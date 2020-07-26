@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
+import { DepartmentDetailComponent } from './department-detail/department-detail.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
     EmployeeListComponent,
     EmployeeDetailComponent,
     routingComponents,
+    DepartmentDetailComponent,
   ],
   imports: [
     BrowserModule,
