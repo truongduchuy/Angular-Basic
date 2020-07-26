@@ -13,7 +13,7 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
     AppComponent,
     EmployeeListComponent,
     EmployeeDetailComponent,
-    routingComponents
+    routingComponents,
   ],
   imports: [
     BrowserModule,
