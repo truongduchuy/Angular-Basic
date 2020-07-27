@@ -6,6 +6,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { DepartmentDetailComponent } from './department-detail/department-detail.component';
 import { DepartmentOverviewComponent } from './department-overview/department-overview.component';
 import { DepartmentContactComponent } from './department-contact/department-contact.component';
+import { EnrollmentFormComponent } from './enrollment-form/enrollment-form.component'
 
 const routes: Routes = [
   { path: '', redirectTo: 'departments', pathMatch: 'full' },
@@ -19,6 +20,7 @@ const routes: Routes = [
     ],
   },
   { path: 'users', component: UserListComponent },
+  { path: 'enrollment', component: EnrollmentFormComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 
@@ -35,4 +37,5 @@ export const routingComponents = [
   DepartmentDetailComponent,
   DepartmentContactComponent,
   DepartmentOverviewComponent,
+  EnrollmentFormComponent
 ];
