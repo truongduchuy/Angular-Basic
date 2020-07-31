@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from "../user";
 
 @Component({
   selector: 'app-enrollment-form',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EnrollmentFormComponent implements OnInit {
   topics = ['Angular', 'React', 'Vue'];
+  userModel = new User('Huy', 'huy@gmail.com', 3232, '', 'morning', true);
   constructor() {}
 
   ngOnInit(): void {}
